@@ -5,15 +5,11 @@ import PublicLayout from '../layouts/public';
 class Navigation extends Component {
 
     constructor(props, context) {
-        super(props, context)
-        this.state = {
-            isUserLoggedIn: localStorage.getItem('sessionToken') ? true : false
-        }
+        super(props)
     }
 
     render() {
-        let { isUserLoggedIn } = this.state
-        if (isUserLoggedIn) {
+        if (localStorage.getItem('sessionToken')) {
             return (
                 <PrivateLayout />
             )
