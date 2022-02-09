@@ -1,5 +1,4 @@
 import Home from "../screens/home";
-import SignIn from "../screens/signIn"
 
 export const privateRoutes = [
     {
@@ -10,7 +9,7 @@ export const privateRoutes = [
 
 export const publicRoutes = [
     {
-        path: "/signIn",
-        component: <SignIn />
+        path: "/home",
+        component: <Home />
     },
 ]

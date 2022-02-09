@@ -1,5 +1,5 @@
-import Button from "./components/Button";
+import CustomButton from "./components/Button"
 
 export {
-    Button
+    CustomButton
 }

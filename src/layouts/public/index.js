@@ -1,6 +1,5 @@
 import React from 'react'
 import { Layout } from 'antd';
-import { Header, Footer } from '../../shared'
 import {
     Route,
     BrowserRouter,
@@ -13,7 +12,6 @@ const { Content } = Layout;
 const PublicLayout = ({ }) => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
-            <Header />
             <Content
                 style={{
                     padding: '70px 50px 0px 50px',
@@ -27,7 +25,6 @@ const PublicLayout = ({ }) => {
                     </Routes>
                 </BrowserRouter>
             </Content>
-            <Footer />
         </Layout>
     )
 }

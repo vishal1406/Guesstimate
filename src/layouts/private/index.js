@@ -1,5 +1,4 @@
 import React from 'react'
-import { Header, Footer } from '../../shared'
 import { Layout } from 'antd';
 import {
     Route,
@@ -10,11 +9,9 @@ import { privateRoutes } from '../../navigation/routes';
 
 const { Content } = Layout;
 
-// private view
 const PrivateLayout = ({ }) => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
-            <Header />
             <Content
                 style={{
                     padding: '70px 50px 0px 50px',
@@ -28,7 +25,6 @@ const PrivateLayout = ({ }) => {
                     </Routes>
                 </BrowserRouter>
             </Content>
-            <Footer />
         </Layout>
     )
 }
