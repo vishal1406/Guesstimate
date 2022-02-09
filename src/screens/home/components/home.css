@@ -3,6 +3,10 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+.playBoard{
+    margin-bottom: 100px;
 }
 .lettersRowStyle {
     display: flex;

@@ -1,3 +1,4 @@
 import HomeComponent from "./Home";
+import Board from './Board';
 
-export { HomeComponent }
+export { HomeComponent, Board }

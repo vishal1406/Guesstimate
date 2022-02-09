@@ -1,5 +1,7 @@
-import CustomButton from "./components/Button"
+import CustomButton from "./components/Button";
+import BoardBox from "./components/Box";
 
 export {
-    CustomButton
+    CustomButton,
+    BoardBox
 }
