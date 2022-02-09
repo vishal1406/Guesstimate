@@ -10,7 +10,7 @@ const HomeComponent = ({ handleClick }) => {
             <div className='root'>
                 {letters.map((item, index) =>
                     <div className='lettersRowStyle'>{letters[index].map((childItem, childIndex) =>
-                        <div className='letterStyle'><CustomButton label={childItem} handleClick={handleClick} />
+                        <div className='letterStyle'><CustomButton label={childItem} handleClick={() => handleClick(childItem)} />
                         </div>)}
                     </div>)}
             </div>
