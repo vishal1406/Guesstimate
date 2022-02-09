@@ -30,10 +30,15 @@ class HomeContainer extends Component {
         }
     }
 
+    handleClick = (key) => {
+        console.log(key)
+    }
+
     render() {
         const { } = this.state
         return (
-            <HomeComponent />
+            <HomeComponent
+                handleClick={this.handleClick} />
         )
     }
 }
