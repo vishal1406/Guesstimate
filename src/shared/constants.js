@@ -3,3 +3,5 @@ export const letters = [
     ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
     ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL']
 ]
+
+export const lettersList = 'abcdefghijklmnopqrstuvwxyz'
