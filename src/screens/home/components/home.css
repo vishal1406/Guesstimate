@@ -1,0 +1,16 @@
+.root {
+    padding: 0rem 10rem;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.lettersRowStyle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.letterStyle {
+    padding: 2px;
+}

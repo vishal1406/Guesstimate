@@ -8,6 +8,8 @@ class Navigation extends Component {
         super(props)
     }
 
+    
+
     render() {
         if (localStorage.getItem('sessionToken')) {
             return (
