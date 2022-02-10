@@ -7,12 +7,13 @@ class HomeContainer extends Component {
         super(props)
         this.state = {
             rowIndex: 0,
-            boardState: ["","","","","",""],
+            boardState: [],
             currentRowEvaluation: [],
             totalEvaluation: [],
             solution:"pause",
             maxLength: 5,
-            currentWord: ""
+            currentWord: "",
+            isRowChange: false
         }
 
         this.bind();
@@ -37,6 +38,16 @@ class HomeContainer extends Component {
 
     handleEnter( event ) {
         console.log( "enter pressed ");
+
+        let value = this.state.currentWord;
+        if(value.length === this.state.maxLength && this.state.boardState.length<6){
+            this.setState(prevState => ({
+                boardState: [ ...prevState.boardState, value ],
+                rowIndex: prevState.rowIndex+1,
+                isRowChange: !prevState.isRowChange,
+                currentWord: ''
+            }))
+        }
     }
 
     handleDelete ( event ){
@@ -49,7 +60,7 @@ class HomeContainer extends Component {
         let value = this.state.currentWord;
         if( value.length < this.state.maxLength ) {
               value+=event.key;
-              this.setState({ currentWord: value });
+              this.setState({ currentWord: value, isRowChange: false });
         }else{
             console.log("max length reached");
         }

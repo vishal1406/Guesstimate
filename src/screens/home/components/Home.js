@@ -6,18 +6,25 @@ import './home.css'
 
 const HomeComponent = (props) => {
 
-     
+    const { boardState } = props;
     return (
         <Fragment>
             <div className='root'>
                 <div className='playBoard'>
                     {
                         [...Array(6)].map( (item, index) => {
-
-                           const value = index === props.rowIndex ? props.currentWord : '';
+                           let value = '';
+                           if(index !== props.rowIndex && index<props.rowIndex) {
+                               value = boardState[index];
+                           }
+                           else if(index === props.rowIndex) {
+                               value = props.currentWord;
+                           }
+                           else value ='';
+                        //    const value = (index === props.rowIndex && !props.isRowChange) ? props.currentWord : '';
                            return(
                             <div className = 'playBoard-row'>
-                                <Board value = {value} />
+                                <Board key={index} value = {value} />
                             </div>
                            )
                         })
