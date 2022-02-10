@@ -8,6 +8,11 @@
 .playBoard{
     margin-bottom: 100px;
 }
+
+.playBoard .playBoard-row {
+    margin-bottom: 20px;
+}
+
 .lettersRowStyle {
     display: flex;
     flex-wrap: wrap;

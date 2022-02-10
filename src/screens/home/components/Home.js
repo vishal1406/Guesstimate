@@ -9,9 +9,18 @@ const HomeComponent = ({ handleClick }) => {
     return (
         <Fragment>
             <div className='root'>
-                <div className = 'playBoard'>
-                   <Board />
+                <div className='playBoard'>
+                    {
+                        [...Array(6)].map( (item, index) => {
+                           return(
+                            <div className = 'playBoard-row'>
+                                <Board />
+                            </div>
+                           )
+                        })
+                    }
                 </div>
+                
                 <div>
                     {letters.map((item, index) =>
                         <div className='lettersRowStyle'>{letters[index].map((childItem, childIndex) =>
