@@ -4,11 +4,12 @@ import './board.css';
 
 const Board = ( props ) => {
 
+    const{ value } = props;
     return(
         <div className = 'ui-boardRow'>
             {
                 [...Array(5)].map( (item, index ) => {
-                   return <BoardBox />
+                   return <BoardBox value={ undefined === value[index] ? '' : value[index]}/>
                 }
                 )
             }

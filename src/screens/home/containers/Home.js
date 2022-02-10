@@ -6,8 +6,23 @@ class HomeContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            rowIndex: 0,
+            boardState: ["","","","","",""],
+            currentRowEvaluation: [],
+            totalEvaluation: [],
+            solution:"pause",
+            maxLength: 5,
+            currentWord: ""
         }
+
+        this.bind();
+    }
+
+    bind(){
+        this.handleKeyPress = this.handleKeyPress.bind( this );
+        this.handleEnter = this.handleEnter.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleChange = this.handleChange.bind( this );
     }
 
     componentDidMount = () => {
@@ -20,13 +35,33 @@ class HomeContainer extends Component {
         document.removeEventListener('keydown', this.handleKeyPress);
     }
 
+    handleEnter( event ) {
+        console.log( "enter pressed ");
+    }
+
+    handleDelete ( event ){
+        console.log( "delete pressed");
+    }
+
+    handleChange ( event ){
+        console.log(event.key);
+
+        let value = this.state.currentWord;
+        if( value.length < this.state.maxLength ) {
+              value+=event.key;
+              this.setState({ currentWord: value });
+        }else{
+            console.log("max length reached");
+        }
+
+    }
     handleKeyPress = (event) => {
         if (event.keyCode === 8) {
-            console.log('You just pressed Delete')
+            this.handleDelete(event);
         } else if (event.keyCode === 13) {
-            console.log('You just pressed Delete')
+            this.handleEnter( event );
         } else if (lettersList.includes(event.key)) {
-            console.log('You just pressed a alphabet')
+            this.handleChange(event);
         }
     }
 
@@ -35,9 +70,10 @@ class HomeContainer extends Component {
     }
 
     render() {
-        const { } = this.state
+        
         return (
             <HomeComponent
+                {...this.state}
                 handleClick={this.handleClick} />
         )
     }

@@ -1,15 +1,15 @@
-import Home from "../screens/home";
+import HomeComponent from "../screens/home";
 
 export const privateRoutes = [
     {
         path: "/home",
-        component: <Home />
+        component: <HomeComponent />
     },
 ];
 
 export const publicRoutes = [
     {
         path: "/home",
-        component: <Home />
+        component: <HomeComponent />
     },
 ]

@@ -1,18 +1,23 @@
-.ui-boardBox--notPresent {
+
+.ui-boardBox{
     width: 70px;
     height: 70px;
+    padding: 10px;
+    font-size: 50px;
+    text-align: center;
+}
+.ui-boardBox--notPresent {
+    
     background-color: grey;
     border: 1px;
 }
 .ui-boardBox--present {
-    width: 70px;
-    height: 70px;
+   
     background-color: yellow;
     border: 1px;
 }
 .ui-boardBox--exact {
-    width: 70px;
-    height: 70px;
+   
     background-color: yellowgreen;
     border: 1px;
 }

@@ -1,3 +1,3 @@
 import Home from "./Home";
-
-export { Home }
+import Board from "./Board";
+export { Home, Board }
