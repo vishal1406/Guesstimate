@@ -6,38 +6,38 @@ class BoardContainer extends Component {
         super(props);
 
         this.state = {
-             rowIndex: 0,
-             boardState: ["","","","","",""],
-             currentRowEvaluation: [],
-             totalEvaluation: []
+            rowIndex: 0,
+            boardState: ["", "", "", "", "", ""],
+            currentRowEvaluation: [],
+            totalEvaluation: []
         }
     }
 
-    componentWillMount() {
+    componentWillMount = () => {
 
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
 
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps = (nextProps) => {
 
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate = (nextProps, nextState) => {
 
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    componentWillUpdate = (nextProps, nextState) => {
 
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate = (prevProps, prevState) => {
 
     }
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
 
     }
 

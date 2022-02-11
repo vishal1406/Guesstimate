@@ -10,20 +10,11 @@ class HomeContainer extends Component {
             boardState: [],
             currentRowEvaluation: [],
             totalEvaluation: [],
-            solution:"pause",
+            solution: "pause",
             maxLength: 5,
             currentWord: "",
             isRowChange: false
         }
-
-        this.bind();
-    }
-
-    bind(){
-        this.handleKeyPress = this.handleKeyPress.bind( this );
-        this.handleEnter = this.handleEnter.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
-        this.handleChange = this.handleChange.bind( this );
     }
 
     componentDidMount = () => {
@@ -36,32 +27,32 @@ class HomeContainer extends Component {
         document.removeEventListener('keydown', this.handleKeyPress);
     }
 
-    handleEnter( event ) {
-        console.log( "enter pressed ");
+    handleEnter = (event) => {
+        console.log("enter pressed ");
 
         let value = this.state.currentWord;
-        if(value.length === this.state.maxLength && this.state.boardState.length<6){
+        if (value.length === this.state.maxLength && this.state.boardState.length < 6) {
             this.setState(prevState => ({
-                boardState: [ ...prevState.boardState, value ],
-                rowIndex: prevState.rowIndex+1,
+                boardState: [...prevState.boardState, value],
+                rowIndex: prevState.rowIndex + 1,
                 isRowChange: !prevState.isRowChange,
                 currentWord: ''
             }))
         }
     }
 
-    handleDelete ( event ){
-        console.log( "delete pressed");
+    handleDelete = (event) => {
+        console.log("delete pressed");
     }
 
-    handleChange ( event ){
+    handleChange = (event) => {
         console.log(event.key);
 
         let value = this.state.currentWord;
-        if( value.length < this.state.maxLength ) {
-              value+=event.key;
-              this.setState({ currentWord: value, isRowChange: false });
-        }else{
+        if (value.length < this.state.maxLength) {
+            value += event.key;
+            this.setState({ currentWord: value, isRowChange: false });
+        } else {
             console.log("max length reached");
         }
 
@@ -70,7 +61,7 @@ class HomeContainer extends Component {
         if (event.keyCode === 8) {
             this.handleDelete(event);
         } else if (event.keyCode === 13) {
-            this.handleEnter( event );
+            this.handleEnter(event);
         } else if (lettersList.includes(event.key)) {
             this.handleChange(event);
         }
@@ -81,7 +72,7 @@ class HomeContainer extends Component {
     }
 
     render() {
-        
+
         return (
             <HomeComponent
                 {...this.state}
