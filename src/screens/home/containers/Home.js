@@ -13,7 +13,8 @@ class HomeContainer extends Component {
             solution: "pause",
             maxLength: 5,
             currentWord: "",
-            isRowChange: false
+            isRowChange: false,
+            isWin: false
         }
     }
 
@@ -31,17 +32,54 @@ class HomeContainer extends Component {
         console.log("enter pressed ");
 
         let value = this.state.currentWord;
+
+        // allow enter in case of word length equal to max length
         if (value.length === this.state.maxLength && this.state.boardState.length < 6) {
+            let _currentRowEvaluation = [];
+
+            // solution array
+            let _solution = [...this.state.solution];
+            let flag ;
+
+            // check the status of alphabet position
+            for(let i =0; i<value.length; i++ ){
+                let temp=value[i];
+                flag=false;
+                for( let j=0; j<_solution.length;j++){
+                    if( _solution[j]===temp && i === j ) {
+                        _currentRowEvaluation.push('present'); 
+                        _solution[j] = '*';
+                        flag=true;
+                        break;
+                    }
+
+                    if( _solution[j]===temp && i !== j ) {
+                        _currentRowEvaluation.push(true);
+                        _solution[j] = '*';
+                        flag=true;
+                        break;
+                    }
+                }
+                if(!flag)
+                _currentRowEvaluation.push(false);
+            }
+            
+            // update the state in case of enter
             this.setState(prevState => ({
+                totalEvaluation: [...prevState.totalEvaluation, _currentRowEvaluation],
+                currentRowEvaluation: _currentRowEvaluation,
                 boardState: [...prevState.boardState, value],
                 rowIndex: prevState.rowIndex + 1,
                 isRowChange: !prevState.isRowChange,
-                currentWord: ''
+                currentWord: '',
+                isWin: value === this.state.solution
             }))
         }
     }
 
     handleDelete = (event) => {
+
+        // delete the char on delete key press
         let { currentWord } = this.state
         if (currentWord) {
             this.setState({ currentWord: currentWord.slice(0, -1) })
@@ -51,6 +89,7 @@ class HomeContainer extends Component {
     handleChange = (event) => {
         console.log(event.key);
         
+        // update the value
         let { currentWord, maxLength } = this.state
         let value = currentWord;
         if (value.length < maxLength) {
@@ -62,12 +101,16 @@ class HomeContainer extends Component {
     }
 
     handleKeyPress = (event) => {
-        if (event.keyCode === 8) {
-            this.handleDelete(event);
-        } else if (event.keyCode === 13) {
-            this.handleEnter(event);
-        } else if (lettersList.includes(event.key)) {
-            this.handleChange(event);
+
+        // disable in case of win the game
+        if(!this.state.isWin){
+            if (event.keyCode === 8) {
+                this.handleDelete(event);
+            } else if (event.keyCode === 13) {
+                this.handleEnter(event);
+            } else if (lettersList.includes(event.key)) {
+                this.handleChange(event);
+            }
         }
     }
 

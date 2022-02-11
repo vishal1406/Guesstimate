@@ -4,7 +4,7 @@ import { letters } from '../../../shared/constants'
 import { Board } from '.';
 import './home.css'
 
-const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick }) => {
+const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation }) => {
     return (
         <Fragment>
             <div className='root'>
@@ -12,8 +12,10 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
                     {
                         [...Array(6)].map((item, index) => {
                             let value = '';
+                            let evaluation = [false, false, false, false, false];
                             if (index !== rowIndex && index < rowIndex) {
                                 value = boardState[index];
+                                evaluation = totalEvaluation[index];
                             }
                             else if (index === rowIndex) {
                                 value = currentWord;
@@ -22,7 +24,7 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
                             //    const value = (index === rowIndex && !isRowChange) ? currentWord : '';
                             return (
                                 <div className='playBoard-row'>
-                                    <Board key={index} value={value} />
+                                    <Board key={index} value={value} evaluation={ evaluation }/>
                                 </div>
                             )
                         })

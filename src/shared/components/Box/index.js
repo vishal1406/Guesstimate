@@ -5,11 +5,11 @@ import classNames from 'classnames';
 const BoardBox = ( props ) => {
 
     // const [value, setValue] = useState('');
-    const { present = false, exact = false } = props;
+    const { status } = props;
     const classname = classNames( 'ui-boardBox', {
-        'ui-boardBox--notPresent': !present,
-        'ui-boardBox--present': present,
-        'ui-boardBox--exact': exact
+        'ui-boardBox--notPresent': false === status,
+        'ui-boardBox--present': true === status,
+        'ui-boardBox--exact': 'present' === status
     })
 
     
