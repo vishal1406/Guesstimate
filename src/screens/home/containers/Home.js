@@ -42,21 +42,25 @@ class HomeContainer extends Component {
     }
 
     handleDelete = (event) => {
-        console.log("delete pressed");
+        let { currentWord } = this.state
+        if (currentWord) {
+            this.setState({ currentWord: currentWord.slice(0, -1) })
+        }
     }
 
     handleChange = (event) => {
         console.log(event.key);
-
-        let value = this.state.currentWord;
-        if (value.length < this.state.maxLength) {
+        
+        let { currentWord, maxLength } = this.state
+        let value = currentWord;
+        if (value.length < maxLength) {
             value += event.key;
             this.setState({ currentWord: value, isRowChange: false });
         } else {
-            console.log("max length reached");
+            console.log("Max Length Reached");
         }
-
     }
+
     handleKeyPress = (event) => {
         if (event.keyCode === 8) {
             this.handleDelete(event);
@@ -68,14 +72,28 @@ class HomeContainer extends Component {
     }
 
     handleClick = (key) => {
-        console.log(key)
+        if (key === 'DEL') {
+            this.handleDelete({ key });
+        } else if (key === 'ENTER') {
+            this.handleEnter({ key });
+        } else if (lettersList.includes(key.toLowerCase())) {
+            this.handleChange({ key });
+        }
     }
 
     render() {
-
+        const { rowIndex, boardState, currentRowEvaluation, totalEvaluation, solution,
+            maxLength, currentWord, isRowChange } = this.state
         return (
             <HomeComponent
-                {...this.state}
+                rowIndex={rowIndex}
+                boardState={boardState}
+                currentRowEvaluation={currentRowEvaluation}
+                totalEvaluation={totalEvaluation}
+                solution={solution}
+                maxLength={maxLength}
+                currentWord={currentWord}
+                isRowChange={isRowChange}
                 handleClick={this.handleClick} />
         )
     }
