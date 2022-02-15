@@ -5,3 +5,8 @@ export const letters = [
 ]
 
 export const lettersList = 'abcdefghijklmnopqrstuvwxyz'
+
+export const warnings = {
+    'notEnoughLetters': 'Not enough letters',
+    'notInWordList': ' Not in word list'
+}

@@ -1,23 +1,31 @@
 
 .ui-boardBox{
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     padding: 10px;
-    font-size: 50px;
-    text-align: center;
+    font-size: 46px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.ui-boardBox--default {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(196, 193, 193);
+    
 }
 .ui-boardBox--notPresent {
     
-    background-color: grey;
-    border: 1px;
+    background-color: rgb(145, 139, 139);
+    border: 3px solid rgb(145, 139, 139);
+
 }
 .ui-boardBox--present {
    
-    background-color: yellow;
-    border: 1px;
+    background-color: rgb(219, 219, 8);
+    border: 3px solid rgb(219, 219, 8);;
 }
 .ui-boardBox--exact {
    
-    background-color: yellowgreen;
-    border: 1px;
+    background-color: rgb(123, 165, 40);
+    border: 3px solid rgb(123, 165, 40);
 }

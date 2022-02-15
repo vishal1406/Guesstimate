@@ -14,7 +14,8 @@ class HomeContainer extends Component {
             maxLength: 5,
             currentWord: "",
             isRowChange: false,
-            isWin: false
+            isWin: false,
+            isShowError: false
         }
     }
 
@@ -47,21 +48,21 @@ class HomeContainer extends Component {
                 flag=false;
                 for( let j=0; j<_solution.length;j++){
                     if( _solution[j]===temp && i === j ) {
-                        _currentRowEvaluation.push('present'); 
+                        _currentRowEvaluation.push('exact'); 
                         _solution[j] = '*';
                         flag=true;
                         break;
                     }
 
                     if( _solution[j]===temp && i !== j ) {
-                        _currentRowEvaluation.push(true);
+                        _currentRowEvaluation.push('present');
                         _solution[j] = '*';
                         flag=true;
                         break;
                     }
                 }
                 if(!flag)
-                _currentRowEvaluation.push(false);
+                _currentRowEvaluation.push('absent');
             }
             
             // update the state in case of enter
@@ -72,9 +73,19 @@ class HomeContainer extends Component {
                 rowIndex: prevState.rowIndex + 1,
                 isRowChange: !prevState.isRowChange,
                 currentWord: '',
-                isWin: value === this.state.solution
+                isWin: value === this.state.solution,
+                isShowError: false
             }))
+        }else{
+            this.setState({ isShowError: true });
+            this.handleShowError();
         }
+    }
+
+    handleShowError = () => {
+        setTimeout( ()=>{
+            this.setState({isShowError: false})
+        }, 3000);
     }
 
     handleDelete = (event) => {
@@ -126,7 +137,7 @@ class HomeContainer extends Component {
 
     render() {
         const { rowIndex, boardState, currentRowEvaluation, totalEvaluation, solution,
-            maxLength, currentWord, isRowChange } = this.state
+            maxLength, currentWord, isRowChange, isShowError } = this.state
         return (
             <HomeComponent
                 rowIndex={rowIndex}
@@ -137,6 +148,7 @@ class HomeContainer extends Component {
                 maxLength={maxLength}
                 currentWord={currentWord}
                 isRowChange={isRowChange}
+                isShowError = {isShowError}
                 handleClick={this.handleClick} />
         )
     }

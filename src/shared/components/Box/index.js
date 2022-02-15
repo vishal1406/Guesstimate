@@ -4,22 +4,17 @@ import classNames from 'classnames';
 
 const BoardBox = ( props ) => {
 
-    // const [value, setValue] = useState('');
-    const { status } = props;
+    const { status, filled = false } = props;
     const classname = classNames( 'ui-boardBox', {
-        'ui-boardBox--notPresent': false === status,
-        'ui-boardBox--present': true === status,
-        'ui-boardBox--exact': 'present' === status
+        'ui-boardBox--default': false === status,
+        'ui-boardBox--notPresent': 'absent' === status,
+        'ui-boardBox--present': 'present' === status,
+        'ui-boardBox--exact': 'exact' === status
     })
 
-    
-    // const handleChange = ( event ) => {
-    //     console.log( event.target.value );
-    //     setValue( event.target.value );
-    // }
     return(
-        // <input className={ classname } value={value} maxLength='1' onChange= { handleChange } />
-        <div className={classname}>{props.value.toUpperCase()}</div>
+
+        <div className={classname} style={{color: filled? '#fff': '#000'}}>{props.value.toUpperCase()}</div>
     )
 }
 

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { CustomButton } from '../../../shared/'
-import { letters } from '../../../shared/constants'
+import { letters, warnings } from '../../../shared/constants'
 import { Board } from '.';
 import './home.css'
 
-const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation }) => {
+const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength }) => {
     return (
         <Fragment>
             <div className='root'>
@@ -21,10 +21,10 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
                                 value = currentWord;
                             }
                             else value = '';
-                            //    const value = (index === rowIndex && !isRowChange) ? currentWord : '';
+
                             return (
                                 <div className='playBoard-row'>
-                                    <Board key={index} value={value} evaluation={ evaluation }/>
+                                    <Board key={index} filled={index!==rowIndex ? true : false } value={value} evaluation={ evaluation } isShowError={isShowError && rowIndex===index} description = {value.length!==maxLength ? warnings.notEnoughLetters : warnings.notInWordList}/>
                                 </div>
                             )
                         })
