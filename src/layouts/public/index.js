@@ -5,14 +5,14 @@ import {
     Switch
 } from 'react-router-dom'
 import { publicRoutes } from '../../navigation/routes';
-import { Footer } from '../../shared'
+import { Header, Footer } from '../../shared'
 
 const PublicLayout = ({ }) => {
     return (
         <Fragment>
             <div style={{
-                height: '10vh'
             }}>
+                <Header />
             </div>
             <div style={{
                 padding: '20px 50px 0px 50px',
@@ -24,7 +24,7 @@ const PublicLayout = ({ }) => {
                 </Switch>
             </div>
             <div style={{
-                height: '10vh'
+                height: '6vh'
             }}>
                 <Footer />
             </div>
