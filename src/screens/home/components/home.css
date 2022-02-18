@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 .playBoard{
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 
 .playBoard .playBoard-row {

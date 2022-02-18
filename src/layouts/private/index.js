@@ -2,8 +2,7 @@ import React from 'react'
 import { Layout } from 'antd';
 import {
     Route,
-    BrowserRouter,
-    Routes,
+    Switch,
 } from 'react-router-dom'
 import { privateRoutes } from '../../navigation/routes';
 
@@ -19,11 +18,9 @@ const PrivateLayout = ({ }) => {
                     minHeight: '82vh'
                 }}
             >
-                <BrowserRouter>
-                    <Routes>
-                        {privateRoutes && privateRoutes.map((item, index) => <Route key={index} exact path={item.path} element={item.component} />)}
-                    </Routes>
-                </BrowserRouter>
+                <Switch>
+                    {privateRoutes && privateRoutes.map((item, index) => <Route key={index} exact path={item.path} component={item.component} />)}
+                </Switch>
             </Content>
         </Layout>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { HomeComponent } from '../components'
 import { lettersList } from '../../../shared/constants'
+import randomWords from 'random-words'
 
 class HomeContainer extends Component {
     constructor(props) {
@@ -22,6 +23,8 @@ class HomeContainer extends Component {
     componentDidMount = () => {
         // For tracking of each key-stroke
         document.addEventListener('keydown', this.handleKeyPress);
+        let arr = randomWords({ exactly: 20, maxLength: 5 });
+        console.log(arr)
     }
 
     componentWillUnmount = () => {
