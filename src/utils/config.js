@@ -1,1 +1,1 @@
-export const baseURL = 'https://play-quiz.in'
+export const baseURL = 'https://guesstimate.in'

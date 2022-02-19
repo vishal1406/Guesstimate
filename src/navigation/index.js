@@ -11,7 +11,6 @@ class Navigation extends Component {
     componentDidMount = () => {
         history.push('/home')
     }
-    
 
     render() {
         if (localStorage.getItem('sessionToken')) {

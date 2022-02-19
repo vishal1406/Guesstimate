@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { HomeComponent } from '../components'
-import { lettersList } from '../../../shared/constants'
+import { lettersList, warnings } from '../../../shared/constants'
 import randomWords from 'random-words'
 import { notifyErrorMessage } from '../../../utils/helper'
 
@@ -34,7 +34,6 @@ class HomeContainer extends Component {
     }
 
     handleEnter = (event) => {
-        console.log("enter pressed ");
 
         let value = this.state.currentWord;
 
@@ -78,11 +77,11 @@ class HomeContainer extends Component {
                 isRowChange: !prevState.isRowChange,
                 currentWord: '',
                 isWin: value === this.state.solution,
-                isShowError: false
+                isShowError: false,
             }))
         } else {
-            // this.setState({ isShowError: true });
-            notifyErrorMessage('Not Enough Letters')
+            this.setState({ isShowError: true });
+            notifyErrorMessage(warnings.notEnoughLetters)
             this.handleShowError();
         }
     }
@@ -90,7 +89,7 @@ class HomeContainer extends Component {
     handleShowError = () => {
         setTimeout(() => {
             this.setState({ isShowError: false })
-        }, 3000);
+        }, 1000);
     }
 
     handleDelete = (event) => {
@@ -103,7 +102,6 @@ class HomeContainer extends Component {
     }
 
     handleChange = (event) => {
-        console.log(event.key);
 
         // update the value
         let { currentWord, maxLength } = this.state

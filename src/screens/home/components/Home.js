@@ -24,7 +24,7 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
 
                             return (
                                 <div className='playBoard-row'>
-                                    <Board key={index} filled={index!==rowIndex ? true : false } value={value} evaluation={ evaluation } isShowError={isShowError && rowIndex===index} description = {value.length!==maxLength ? warnings.notEnoughLetters : warnings.notInWordList}/>
+                                    <Board key={index} filled={index !== rowIndex ? true : false} value={value} evaluation={evaluation} isShowError={isShowError && rowIndex === index} description={value.length !== maxLength ? warnings.notEnoughLetters : warnings.notInWordList} />
                                 </div>
                             )
                         })
