@@ -3,7 +3,8 @@
     width: 30px;
     height: 30px;
     padding: 10px;
-    font-size: 46px;
+    font-size: 40px;
+    font-weight: 700;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -17,15 +18,52 @@
     
     background-color: rgb(145, 139, 139);
     border: 3px solid rgb(145, 139, 139);
+    animation: notPresent 1s;
+    /* transform: scale(-1,1); */
+}
 
+@keyframes notPresent {
+    0%{
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY( 0deg);
+    }
 }
 .ui-boardBox--present {
    
-    background-color: rgb(219, 219, 8);
-    border: 3px solid rgb(219, 219, 8);;
+    background-color: rgb(214, 214, 26);
+    border: 3px solid rgb(214, 214, 26);
+    animation: present 1s;
+}
+@keyframes present {
+    0%{
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY( 0deg);
+    }
 }
 .ui-boardBox--exact {
    
     background-color: rgb(123, 165, 40);
     border: 3px solid rgb(123, 165, 40);
+    animation: exact 1s;
+}
+@keyframes exact {
+    0%{
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY( 0deg);
+    }
 }
