@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { HomeComponent } from '../components'
-import { lettersList, warnings } from '../../../shared/constants'
+import { lettersList, warnings, wordList } from '../../../shared/constants'
 import randomWords from 'random-words'
-import { notifyErrorMessage } from '../../../utils/helper'
+import { notifyErrorMessage, generateRandomNumber } from '../../../utils/helper'
 
 class HomeContainer extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class HomeContainer extends Component {
             boardState: [],
             currentRowEvaluation: [],
             totalEvaluation: [],
-            solution: "pause",
+            solution: "",
             maxLength: 5,
             currentWord: "",
             isRowChange: false,
@@ -24,13 +24,25 @@ class HomeContainer extends Component {
     componentDidMount = () => {
         // For tracking of each key-stroke
         document.addEventListener('keydown', this.handleKeyPress);
-        let arr = randomWords({ exactly: 20, maxLength: 5 });
-        console.log(arr)
+        this.getRandomWord(5)
     }
 
     componentWillUnmount = () => {
         // Removing event listener
         document.removeEventListener('keydown', this.handleKeyPress);
+    }
+
+    getRandomWord = (givenLen) => {
+        let isRandomNumberFound = false
+        while (!isRandomNumberFound) {
+            let generatedWords = randomWords({ exactly: 20, maxLength: givenLen });
+            let givenLenWords = generatedWords.filter((item) => { return item.length === givenLen })
+            if (givenLenWords) {
+                let randomNumber = generateRandomNumber(givenLenWords.length)
+                this.setState({ solution: givenLenWords[randomNumber] })
+                isRandomNumberFound = true
+            }
+        }
     }
 
     handleEnter = (event) => {
