@@ -5,7 +5,7 @@ import {
     Switch
 } from 'react-router-dom'
 import { publicRoutes } from '../../navigation/routes';
-import { Header, Footer } from '../../shared'
+import { Header, Footer, Toast } from '../../shared'
 
 const PublicLayout = ({ }) => {
     return (
@@ -28,6 +28,7 @@ const PublicLayout = ({ }) => {
             }}>
                 <Footer />
             </div>
+            <Toast />
         </Fragment>
     )
 }

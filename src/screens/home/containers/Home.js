@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HomeComponent } from '../components'
 import { lettersList } from '../../../shared/constants'
 import randomWords from 'random-words'
+import { notifyErrorMessage } from '../../../utils/helper'
 
 class HomeContainer extends Component {
     constructor(props) {
@@ -43,31 +44,31 @@ class HomeContainer extends Component {
 
             // solution array
             let _solution = [...this.state.solution];
-            let flag ;
+            let flag;
 
             // check the status of alphabet position
-            for(let i =0; i<value.length; i++ ){
-                let temp=value[i];
-                flag=false;
-                for( let j=0; j<_solution.length;j++){
-                    if( _solution[j]===temp && i === j ) {
-                        _currentRowEvaluation.push('exact'); 
+            for (let i = 0; i < value.length; i++) {
+                let temp = value[i];
+                flag = false;
+                for (let j = 0; j < _solution.length; j++) {
+                    if (_solution[j] === temp && i === j) {
+                        _currentRowEvaluation.push('exact');
                         _solution[j] = '*';
-                        flag=true;
+                        flag = true;
                         break;
                     }
 
-                    if( _solution[j]===temp && i !== j ) {
+                    if (_solution[j] === temp && i !== j) {
                         _currentRowEvaluation.push('present');
                         _solution[j] = '*';
-                        flag=true;
+                        flag = true;
                         break;
                     }
                 }
-                if(!flag)
-                _currentRowEvaluation.push('absent');
+                if (!flag)
+                    _currentRowEvaluation.push('absent');
             }
-            
+
             // update the state in case of enter
             this.setState(prevState => ({
                 totalEvaluation: [...prevState.totalEvaluation, _currentRowEvaluation],
@@ -79,15 +80,16 @@ class HomeContainer extends Component {
                 isWin: value === this.state.solution,
                 isShowError: false
             }))
-        }else{
-            this.setState({ isShowError: true });
+        } else {
+            // this.setState({ isShowError: true });
+            notifyErrorMessage('Not Enough Letters')
             this.handleShowError();
         }
     }
 
     handleShowError = () => {
-        setTimeout( ()=>{
-            this.setState({isShowError: false})
+        setTimeout(() => {
+            this.setState({ isShowError: false })
         }, 3000);
     }
 
@@ -102,7 +104,7 @@ class HomeContainer extends Component {
 
     handleChange = (event) => {
         console.log(event.key);
-        
+
         // update the value
         let { currentWord, maxLength } = this.state
         let value = currentWord;
@@ -117,7 +119,7 @@ class HomeContainer extends Component {
     handleKeyPress = (event) => {
 
         // disable in case of win the game
-        if(!this.state.isWin){
+        if (!this.state.isWin) {
             if (event.keyCode === 8) {
                 this.handleDelete(event);
             } else if (event.keyCode === 13) {
@@ -151,7 +153,7 @@ class HomeContainer extends Component {
                 maxLength={maxLength}
                 currentWord={currentWord}
                 isRowChange={isRowChange}
-                isShowError = {isShowError}
+                isShowError={isShowError}
                 handleClick={this.handleClick} />
         )
     }
