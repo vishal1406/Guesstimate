@@ -17,7 +17,8 @@ class HomeContainer extends Component {
             currentWord: "",
             isRowChange: false,
             isWin: false,
-            isShowError: false
+            isShowError: false,
+            keyBoardStatus: {}
         }
     }
 
@@ -55,6 +56,7 @@ class HomeContainer extends Component {
 
             // solution array
             let _solution = [...this.state.solution];
+            let _keyBoardStatus = {};
             let flag;
 
             // check the status of alphabet position
@@ -64,6 +66,7 @@ class HomeContainer extends Component {
                 for (let j = 0; j < _solution.length; j++) {
                     if (_solution[j] === temp && i === j) {
                         _currentRowEvaluation.push('exact');
+                        _keyBoardStatus[temp.toUpperCase()]='exact';
                         _solution[j] = '*';
                         flag = true;
                         break;
@@ -71,13 +74,16 @@ class HomeContainer extends Component {
 
                     if (_solution[j] === temp && i !== j) {
                         _currentRowEvaluation.push('present');
+                        _keyBoardStatus[temp.toUpperCase()]='present';
                         _solution[j] = '*';
                         flag = true;
                         break;
                     }
                 }
-                if (!flag)
+                if (!flag){
                     _currentRowEvaluation.push('absent');
+                    _keyBoardStatus[temp.toUpperCase()]='absent';
+                }
             }
 
             // update the state in case of enter
@@ -90,6 +96,7 @@ class HomeContainer extends Component {
                 currentWord: '',
                 isWin: value === this.state.solution,
                 isShowError: false,
+                keyBoardStatus: { ...this.state.keyBoardStatus, ..._keyBoardStatus }
             }))
         } else {
             this.setState({ isShowError: true });
@@ -152,7 +159,7 @@ class HomeContainer extends Component {
 
     render() {
         const { rowIndex, boardState, currentRowEvaluation, totalEvaluation, solution,
-            maxLength, currentWord, isRowChange, isShowError } = this.state
+            maxLength, currentWord, isRowChange, isShowError, keyBoardStatus } = this.state
         return (
             <HomeComponent
                 rowIndex={rowIndex}
@@ -164,6 +171,7 @@ class HomeContainer extends Component {
                 currentWord={currentWord}
                 isRowChange={isRowChange}
                 isShowError={isShowError}
+                keyBoardStatus={keyBoardStatus}
                 handleClick={this.handleClick} />
         )
     }

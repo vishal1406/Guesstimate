@@ -1,8 +1,30 @@
-.customStyle {
-    background: #2C3333;
-    color: #F5F2E7;
+.ui-keyBoard-box {
+    background: rgb(215, 215, 224);
+    border: 1px solid rgb(215, 215, 224);
     border-radius: 5px;
-    min-width: 3rem;
+    min-width: 2.5rem;
     height: 3rem;
-    font-size: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.ui-keyBoard-box--notPresent {
+    background-color: rgb(145, 139, 139);
+    border: 3px solid rgb(145, 139, 139);
+    color: #fff;
+
+}
+
+.ui-keyBoard-box--present {
+   
+    background-color: rgb(214, 214, 26);
+    border: 3px solid rgb(214, 214, 26);
+    color: #fff;
+}
+
+.ui-keyBoard-box--exact {
+   
+    background-color: rgb(123, 165, 40);
+    border: 3px solid rgb(123, 165, 40);
+    color: #fff;
 }

@@ -4,7 +4,7 @@ import { letters, warnings } from '../../../shared/constants'
 import { Board } from '.';
 import './home.css'
 
-const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength }) => {
+const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus }) => {
     return (
         <Fragment>
             <div className='root'>
@@ -34,7 +34,7 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
                 <div>
                     {letters.map((item, index) =>
                         <div className='lettersRowStyle'>{letters[index].map((childItem, childIndex) =>
-                            <div className='letterStyle'><CustomButton label={childItem} handleClick={() => handleClick(childItem)} />
+                            <div className='letterStyle'><CustomButton status={keyBoardStatus[childItem]} label={childItem} handleClick={() => handleClick(childItem)} />
                             </div>
                         )}
                         </div>
