@@ -1,0 +1,54 @@
+.ui-timer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 36%;
+    align-items: flex-end;
+}
+
+.ui-timer__buttons{
+
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
+.ui-timer__space{
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightslategray;
+}
+
+.ui-timer__buttons__start{
+    padding: 6px 18px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: fantasy;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid rgb(121, 177, 121);
+    background-color: rgb(121, 177, 121);
+    color: #fff;
+}
+
+.ui-timer__buttons__stop{
+    padding: 6px 18px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: fantasy;
+    border-radius: 50%;
+    border: 1px solid rgb(201, 165, 165);
+    background-color: rgb(201, 165, 165);
+    color: #fff;
+}
+
+.ui-alarm-icon{
+    display: flex;
+    width: 58%;
+    margin-bottom: 20px;
+    color: rgb(162, 162, 201);
+}

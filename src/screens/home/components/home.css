@@ -1,12 +1,19 @@
-.root {
-    padding: 0rem 10rem;
+.root{
+    display: flex;
+    justify-content: space-between;
+}
+.main {
+    /* padding: 0rem 10rem; */
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: flex-start;
+    width: 64%;
 }
 .playBoard{
     margin-bottom: 10px;
+    margin-left: 64px;
 }
 
 .playBoard .playBoard-row {

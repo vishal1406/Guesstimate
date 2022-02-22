@@ -1,3 +1,3 @@
 import TimerView from "./Timer";
 
-export {TimerView};
+export default TimerView;
