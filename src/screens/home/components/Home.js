@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { CustomButton } from '../../../shared/'
+import { CustomButton, Timer } from '../../../shared/'
 import { letters, warnings } from '../../../shared/constants'
 import { Board } from '.';
 import './home.css'
@@ -8,6 +8,7 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
     return (
         <Fragment>
             <div className='root'>
+                <Timer duration = '30' />
                 <div className='playBoard'>
                     {
                         [...Array(6)].map((item, index) => {

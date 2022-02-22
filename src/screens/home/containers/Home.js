@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { HomeComponent } from '../components'
 import { lettersList, warnings, wordList } from '../../../shared/constants'
 import randomWords from 'random-words'
-import { notifyErrorMessage, generateRandomNumber } from '../../../utils/helper'
+import { notifyErrorMessage, generateRandomNumber, getEvaluatedAndStatus } from '../../../utils/helper'
 
 class HomeContainer extends Component {
     constructor(props) {
@@ -52,39 +52,41 @@ class HomeContainer extends Component {
 
         // allow enter in case of word length equal to max length
         if (value.length === this.state.maxLength && this.state.boardState.length < 6) {
-            let _currentRowEvaluation = [];
+            // let _currentRowEvaluation = [];
 
             // solution array
             let _solution = [...this.state.solution];
-            let _keyBoardStatus = {};
-            let flag;
 
-            // check the status of alphabet position
-            for (let i = 0; i < value.length; i++) {
-                let temp = value[i];
-                flag = false;
-                for (let j = 0; j < _solution.length; j++) {
-                    if (_solution[j] === temp && i === j) {
-                        _currentRowEvaluation.push('exact');
-                        _keyBoardStatus[temp.toUpperCase()]='exact';
-                        _solution[j] = '*';
-                        flag = true;
-                        break;
-                    }
+            const { _currentRowEvaluation, _keyBoardStatus } = getEvaluatedAndStatus( { _solution, value });
+            // let _keyBoardStatus = {};
+            // let flag;
 
-                    if (_solution[j] === temp && i !== j) {
-                        _currentRowEvaluation.push('present');
-                        _keyBoardStatus[temp.toUpperCase()]='present';
-                        _solution[j] = '*';
-                        flag = true;
-                        break;
-                    }
-                }
-                if (!flag){
-                    _currentRowEvaluation.push('absent');
-                    _keyBoardStatus[temp.toUpperCase()]='absent';
-                }
-            }
+            // // check the status of alphabet position
+            // for (let i = 0; i < value.length; i++) {
+            //     let temp = value[i];
+            //     flag = false;
+            //     for (let j = 0; j < _solution.length; j++) {
+            //         if (_solution[j] === temp && i === j) {
+            //             _currentRowEvaluation.push('exact');
+            //             _keyBoardStatus[temp.toUpperCase()]='exact';
+            //             _solution[j] = '*';
+            //             flag = true;
+            //             break;
+            //         }
+
+            //         if (_solution[j] === temp && i !== j) {
+            //             _currentRowEvaluation.push('present');
+            //             _keyBoardStatus[temp.toUpperCase()]='present';
+            //             _solution[j] = '*';
+            //             flag = true;
+            //             break;
+            //         }
+            //     }
+            //     if (!flag){
+            //         _currentRowEvaluation.push('absent');
+            //         _keyBoardStatus[temp.toUpperCase()]='absent';
+            //     }
+            // }
 
             // update the state in case of enter
             this.setState(prevState => ({
