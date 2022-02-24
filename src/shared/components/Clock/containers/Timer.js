@@ -7,16 +7,19 @@ class Timer extends Component {
 
         this.state = {
             value: '',
-            fixedTime: 300,
-            duration: 300
+            isTimeUp: false,
+            duration: 30
         }
 
         this.handleTimer = this.handleTimer.bind(this);
         this.countDown = this.countDown.bind(this);
         this.stopTimer = this.stopTimer.bind(this);
+        this.handleTimer();
+        
+        // this.stopTimer = this.stopTimer.bind(this);
     }
 
-    handleTimer({isContinue}){
+    handleTimer(){
         if(this.state.duration!==0&&this.state.duration>0)
         this.timer = setInterval(this.countDown, 1000);
     }
@@ -25,12 +28,16 @@ class Timer extends Component {
         clearInterval(this.timer);
     }
 
-    countDown(isContinue){
-        console.log("countDown");
+    countDown(){
+        // console.log("countDown");
         let duration = this.state.duration-1;
         this.setState({duration});
+        if(this.props.isWin)this.stopTimer();
         if(duration === 0){
+            this.setState({isTimeUp:true})
+            this.props.onTimeUp(this.state.isTimeUp);
             clearInterval(this.timer);
+            
         }
     }
 
@@ -38,9 +45,10 @@ class Timer extends Component {
         return (
             <TimerView 
                duration = {this.state.duration}
-               handleTimer = {this.handleTimer}
-               handleStop = {this.stopTimer}
-               fixedTime = {this.state.fixedTime}
+               isTimeUp = {this.state.isTimeUp}
+            //    handleTimer = {this.handleTimer}
+            //    handleStop = {this.stopTimer}
+            //    fixedTime = {this.state.fixedTime}
             />
         );
     }

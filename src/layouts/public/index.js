@@ -17,7 +17,7 @@ const PublicLayout = ({ }) => {
             <div style={{
                 padding: '20px 50px 0px 50px',
                 backgroundColor: "#F9FBFD",
-                height: '100vh'
+                height: '80vh'
             }}>
                 <Switch>
                     {publicRoutes && publicRoutes.map((item, index) => <Route key={index} exact path={item.path} component={item.component} />)}

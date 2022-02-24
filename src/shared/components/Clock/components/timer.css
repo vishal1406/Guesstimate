@@ -1,12 +1,14 @@
 .ui-timer{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
-    width: 36%;
-    align-items: flex-end;
+    /* width: 36%; */
+    align-items: center;
+    color: grey;
+    font-weight: 700;
 }
 
-.ui-timer__buttons{
+/* .ui-timer__buttons{
 
     display: flex;
     width: 60%;
@@ -51,4 +53,4 @@
     width: 58%;
     margin-bottom: 20px;
     color: rgb(162, 162, 201);
-}
+} */

@@ -4,11 +4,11 @@ import { letters, warnings } from '../../../shared/constants'
 import { Board } from '.';
 import './home.css'
 
-const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus }) => {
+const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus, handleTimeUp, isWin }) => {
     return (
         <Fragment>
             <div className='root'>
-                {/* <Timer /> */}
+                <Timer onTimeUp={(isTimeUp)=>handleTimeUp(isTimeUp)} isWin={isWin}/>
                 <div className='main'>
                     <div className='playBoard'>
                         {

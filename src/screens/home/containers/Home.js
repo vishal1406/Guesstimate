@@ -18,14 +18,17 @@ class HomeContainer extends Component {
             isRowChange: false,
             isWin: false,
             isShowError: false,
-            keyBoardStatus: {}
+            keyBoardStatus: {},
+            isTimeUp: false
         }
     }
 
     componentDidMount = () => {
         // For tracking of each key-stroke
+        
         document.addEventListener('keydown', this.handleKeyPress);
         this.getRandomWord(5)
+        
     }
 
     componentWillUnmount = () => {
@@ -118,7 +121,7 @@ class HomeContainer extends Component {
     handleKeyPress = (event) => {
 
         // disable in case of win the game
-        if (!this.state.isWin) {
+        if (!this.state.isWin && !this.state.isTimeUp) {
             if (event.keyCode === 8) {
                 this.handleDelete(event);
             } else if (event.keyCode === 13) {
@@ -130,18 +133,27 @@ class HomeContainer extends Component {
     }
 
     handleClick = (key) => {
-        if (key === 'DEL') {
-            this.handleDelete({ key });
-        } else if (key === 'ENTER') {
-            this.handleEnter({ key });
-        } else if (lettersList.includes(key.toLowerCase())) {
-            this.handleChange({ key });
+        if(!this.state.isTimeUp){
+            if (key === 'DEL') {
+                this.handleDelete({ key });
+            } else if (key === 'ENTER') {
+                this.handleEnter({ key });
+            } else if (lettersList.includes(key.toLowerCase())) {
+                this.handleChange({ key });
+            }
         }
+    }
+
+    handleTimeUp = (isTimeUp)=>{
+        if(isTimeUp){
+            this.setState({isTimeUp});
+        }
+        notifyErrorMessage(warnings.timeUp);
     }
 
     render() {
         const { rowIndex, boardState, currentRowEvaluation, totalEvaluation, solution,
-            maxLength, currentWord, isRowChange, isShowError, keyBoardStatus } = this.state
+            maxLength, currentWord, isRowChange, isShowError, keyBoardStatus, isWin } = this.state
         return (
             <HomeComponent
                 rowIndex={rowIndex}
@@ -154,6 +166,8 @@ class HomeContainer extends Component {
                 isRowChange={isRowChange}
                 isShowError={isShowError}
                 keyBoardStatus={keyBoardStatus}
+                handleTimeUp={this.handleTimeUp}
+                isWin={isWin}
                 handleClick={this.handleClick} />
         )
     }

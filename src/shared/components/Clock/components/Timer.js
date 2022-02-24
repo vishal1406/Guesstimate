@@ -11,7 +11,7 @@ const TimerView = ( props )=> {
     // let remainingTime = fixedTime - fixedTime%duration;
     let minutes = parseInt(duration/60,10);
     let seconds = parseInt(duration%60,10);
-    console.log(minutes, seconds);
+    // console.log(minutes, seconds);
 
     minutes = minutes<10? "0" + minutes : minutes;
     seconds = seconds<10? "0" + seconds : seconds;
@@ -20,14 +20,16 @@ const TimerView = ( props )=> {
     return (
         
         <div className='ui-timer'>
-            <BsFillAlarmFill className='ui-alarm-icon' size={100}/>
+            {/* <BsFillAlarmFill className='ui-alarm-icon' size={100}/>
             <div className='ui-timer__space'>
                 {value}
             </div>
             <div className='ui-timer__buttons'>
                 <button className='ui-timer__buttons__start' onClick={props.handleTimer}>Start</button>
                 <button  className='ui-timer__buttons__stop' onClick = {props.handleStop}>stop</button>
-            </div>
+            </div> */}
+
+            <span>Time Left:</span> <span>&nbsp;</span>{value}
             
         </div>
         

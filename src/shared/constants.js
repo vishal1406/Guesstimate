@@ -9,5 +9,6 @@ export const lettersList = 'abcdefghijklmnopqrstuvwxyz'
 export const warnings = {
     'notEnoughLetters': 'Not enough letters',
     'notInWordList': ' Not in word list',
-    'repeatingWords': ' Already used the same word'
+    'repeatingWords': ' Already used the same word',
+    'timeUp': 'Time finished'
 }
