@@ -8,7 +8,7 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
     return (
         <Fragment>
             <div className='root'>
-                <Timer />
+                {/* <Timer /> */}
                 <div className='main'>
                     <div className='playBoard'>
                         {
