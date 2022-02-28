@@ -2,12 +2,14 @@ import React, { Fragment } from 'react'
 import { CustomButton, Timer } from '../../../shared/'
 import { letters, warnings } from '../../../shared/constants'
 import { Board } from '.';
+import { GameRules } from '.';
 import './home.css'
 
 const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus, handleTimeUp, isWin }) => {
     return (
         <Fragment>
             <div className='root'>
+                <GameRules />
                 <Timer onTimeUp={(isTimeUp)=>handleTimeUp(isTimeUp)} isWin={isWin}/>
                 <div className='main'>
                     <div className='playBoard'>
