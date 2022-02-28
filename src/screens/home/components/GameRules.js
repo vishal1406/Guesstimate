@@ -9,7 +9,7 @@ const GameRules = ( props ) => {
     const status = ['absent', 'absent', 'exact', 'absent', 'present'];
     return(
         <div className = 'ui-rules'>
-            <AiOutlineClose className='ui-close-icon'/>
+            <AiOutlineClose className='ui-close-icon' size={28} onClick={props.onCloseClick}/>
             <h1 className = 'ui-rules__heading'>How to play</h1>
             <div className='ui-rules__subHeading'>
             You get 6 tries to guess a target word.<br />

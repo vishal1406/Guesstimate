@@ -5,12 +5,13 @@ import { Board } from '.';
 import { GameRules } from '.';
 import './home.css'
 
-const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus, handleTimeUp, isWin }) => {
+const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus, handleTimeUp, isWin, handleClose, closeOverlay }) => {
     return (
         <Fragment>
             <div className='root'>
-                <GameRules />
-                <Timer onTimeUp={(isTimeUp)=>handleTimeUp(isTimeUp)} isWin={isWin}/>
+
+                {!closeOverlay&&<GameRules onCloseClick={handleClose}/>}
+                {closeOverlay&&<Timer onTimeUp={(isTimeUp)=>handleTimeUp(isTimeUp)} closeOverlay={closeOverlay} isWin={isWin}/>}
                 <div className='main'>
                     <div className='playBoard'>
                         {

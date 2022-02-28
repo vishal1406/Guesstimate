@@ -19,7 +19,8 @@ class HomeContainer extends Component {
             isWin: false,
             isShowError: false,
             keyBoardStatus: {},
-            isTimeUp: false
+            isTimeUp: false,
+            closeOverlay: false
         }
     }
 
@@ -151,9 +152,12 @@ class HomeContainer extends Component {
         notifyErrorMessage(warnings.timeUp);
     }
 
+    handleClose = () => {
+        this.setState({closeOverlay: true})
+    }
     render() {
         const { rowIndex, boardState, currentRowEvaluation, totalEvaluation, solution,
-            maxLength, currentWord, isRowChange, isShowError, keyBoardStatus, isWin } = this.state
+            maxLength, currentWord, isRowChange, isShowError, keyBoardStatus, isWin, closeOverlay } = this.state
         return (
             <HomeComponent
                 rowIndex={rowIndex}
@@ -168,6 +172,8 @@ class HomeContainer extends Component {
                 keyBoardStatus={keyBoardStatus}
                 handleTimeUp={this.handleTimeUp}
                 isWin={isWin}
+                closeOverlay={closeOverlay}
+                handleClose={this.handleClose}
                 handleClick={this.handleClick} />
         )
     }

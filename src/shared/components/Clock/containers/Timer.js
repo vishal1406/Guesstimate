@@ -14,6 +14,7 @@ class Timer extends Component {
         this.handleTimer = this.handleTimer.bind(this);
         this.countDown = this.countDown.bind(this);
         this.stopTimer = this.stopTimer.bind(this);
+        // if(props.closeOverlay)
         this.handleTimer();
         
         // this.stopTimer = this.stopTimer.bind(this);
@@ -46,6 +47,7 @@ class Timer extends Component {
             <TimerView 
                duration = {this.state.duration}
                isTimeUp = {this.state.isTimeUp}
+               handleTimer = {this.handleTimer}
             //    handleTimer = {this.handleTimer}
             //    handleStop = {this.stopTimer}
             //    fixedTime = {this.state.fixedTime}
