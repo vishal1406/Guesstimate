@@ -122,7 +122,7 @@ class HomeContainer extends Component {
     handleKeyPress = (event) => {
 
         // disable in case of win the game
-        if (!this.state.isWin && !this.state.isTimeUp) {
+        if (!this.state.isWin && !this.state.isTimeUp && this.state.closeOverlay) {
             if (event.keyCode === 8) {
                 this.handleDelete(event);
             } else if (event.keyCode === 13) {
@@ -134,7 +134,7 @@ class HomeContainer extends Component {
     }
 
     handleClick = (key) => {
-        if(!this.state.isTimeUp){
+        if(!this.state.isTimeUp && this.getSnapshotBeforeUpdate.closeOverlay){
             if (key === 'DEL') {
                 this.handleDelete({ key });
             } else if (key === 'ENTER') {

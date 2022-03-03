@@ -8,6 +8,8 @@ const GameRules = ( props ) => {
     const letters = ['w', 'o', 'r', 'l', 'd'];
     const status = ['absent', 'absent', 'exact', 'absent', 'present'];
     return(
+        <>
+        {/* <div className='backdrop'></div> */}
         <div className = 'ui-rules'>
             <AiOutlineClose className='ui-close-icon' size={28} onClick={props.onCloseClick}/>
             <h1 className = 'ui-rules__heading'>How to play</h1>
@@ -32,6 +34,8 @@ const GameRules = ( props ) => {
             </div>
 
         </div>
+        </>
+        
     )
 }
 
