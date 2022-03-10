@@ -3,14 +3,15 @@ import { CustomButton, Timer } from '../../../shared/'
 import { letters, warnings } from '../../../shared/constants'
 import { Board } from '.';
 import { GameRules } from '.';
-import './home.css'
+import './home.css';
+import { createPortal } from 'react-dom';
 
 const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleClick, currentRowEvaluation, totalEvaluation, isShowError, maxLength, keyBoardStatus, handleTimeUp, isWin, handleClose, closeOverlay }) => {
     return (
         <Fragment>
             <div className='root'>
 
-                {!closeOverlay&&<GameRules onCloseClick={handleClose}/>}
+                {!closeOverlay&& createPortal(<GameRules onCloseClick={handleClose}/>, document.body)}
                 {closeOverlay&&<Timer onTimeUp={(isTimeUp)=>handleTimeUp(isTimeUp)} closeOverlay={closeOverlay} isWin={isWin}/>}
                 <div className='main'>
                     <div className='playBoard'>
