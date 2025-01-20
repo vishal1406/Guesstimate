@@ -9,7 +9,6 @@ class HeaderContainer extends Component {
     }
 
     render() {
-        const { } = this.state
         return (
             <HeaderComponent />
         )

@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css'
 
-const Footer = ({ }) => {
+const Footer = () => {
     return (
         <div className="footer">{`© ${(new Date().getFullYear())} Guesstimate - Created with ❤️ by VZ`}</div>
     )

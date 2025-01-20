@@ -4,11 +4,10 @@ import './board.css';
 
 const Board = (props) => {
 
-    const { value, evaluation, isShowError = 'false', description = '', filled } = props;
+    const { value, evaluation, isShowError = 'false', filled } = props;
 
     return (
         <Fragment>
-            {/* { isShowError && <div className='ui-showError'>{ description }</div> } */}
             <div className='ui-boardRow' >
                 {
                     [...Array(5)].map((item, index) => {

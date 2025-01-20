@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { HomeComponent } from '../components'
-import { lettersList, warnings, wordList } from '../../../shared/constants'
+import { lettersList, warnings } from '../../../shared/constants'
 import randomWords from 'random-words'
 import { notifyErrorMessage, generateRandomNumber, getEvaluatedAndStatus } from '../../../utils/helper'
 
@@ -26,10 +26,8 @@ class HomeContainer extends Component {
 
     componentDidMount = () => {
         // For tracking of each key-stroke
-        
         document.addEventListener('keydown', this.handleKeyPress);
         this.getRandomWord(5)
-        
     }
 
     componentWillUnmount = () => {

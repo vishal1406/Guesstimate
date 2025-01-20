@@ -6,7 +6,7 @@ import {
 import { publicRoutes } from '../../navigation/routes';
 import { Header, Footer, Toast } from '../../shared'
 
-const PublicLayout = ({ }) => {
+const PublicLayout = () => {
     return (
         <Fragment>
             <Header />

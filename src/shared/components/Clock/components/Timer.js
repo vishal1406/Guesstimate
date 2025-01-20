@@ -1,6 +1,5 @@
 import React from 'react';
 import './timer.css';
-import { BsFillAlarmFill } from "react-icons/bs";
 
 
 

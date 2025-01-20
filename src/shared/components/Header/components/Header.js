@@ -1,7 +1,7 @@
 import React from 'react'
 import "./header.css"
 
-const HeaderComponent = ({ }) => {
+const HeaderComponent = () => {
     return (
         <div className="header">{`Guesstimate`}</div>
     )

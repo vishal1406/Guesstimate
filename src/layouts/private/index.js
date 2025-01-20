@@ -8,7 +8,7 @@ import { privateRoutes } from '../../navigation/routes';
 
 const { Content } = Layout;
 
-const PrivateLayout = ({ }) => {
+const PrivateLayout = () => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Content
