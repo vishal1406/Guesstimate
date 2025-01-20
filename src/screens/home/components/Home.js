@@ -10,7 +10,6 @@ const HomeComponent = ({ boardState, rowIndex, isRowChange, currentWord, handleC
     return (
         <Fragment>
             <div className='root'>
-
                 {!closeOverlay&& createPortal(<GameRules onCloseClick={handleClose}/>, document.body)}
                 {closeOverlay&&<Timer onTimeUp={(isTimeUp)=>handleTimeUp(isTimeUp)} closeOverlay={closeOverlay} isWin={isWin}/>}
                 <div className='main'>

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { Layout } from 'antd';
 import {
     Route,
     Switch
@@ -10,24 +9,16 @@ import { Header, Footer, Toast } from '../../shared'
 const PublicLayout = ({ }) => {
     return (
         <Fragment>
-            <div style={{
-            }}>
-                <Header />
-            </div>
+            <Header />
             <div style={{
                 padding: '20px 50px 0px 50px',
                 backgroundColor: "#F9FBFD",
-                height: '80vh'
             }}>
                 <Switch>
                     {publicRoutes && publicRoutes.map((item, index) => <Route key={index} exact path={item.path} component={item.component} />)}
                 </Switch>
             </div>
-            <div style={{
-                height: '6vh'
-            }}>
-                <Footer />
-            </div>
+            <Footer />
             <Toast />
         </Fragment>
     )
