@@ -13,7 +13,6 @@ interface HomeComponentProps {
   handleClick: (char: string) => void;
   totalEvaluation: string[][];
   isShowError: boolean;
-  maxLength: number;
   keyBoardStatus: Record<string, string>;
   handleTimeUp: (isTimeUp: boolean) => void;
   isWin: boolean;
@@ -28,7 +27,6 @@ const HomeComponent: React.FC<HomeComponentProps> = ({
   handleClick,
   totalEvaluation,
   isShowError,
-  maxLength,
   keyBoardStatus,
   handleTimeUp,
   isWin,
@@ -72,7 +70,7 @@ const HomeComponent: React.FC<HomeComponentProps> = ({
           <div>
             {LETTERS.map((item, index) => (
               <div className="lettersRowStyle" key={index}>
-                {LETTERS[index].map((childItem, childIndex) => (
+                {item.map((childItem, childIndex) => (
                   <div className="letterStyle" key={childIndex}>
                     <Button
                       status={keyBoardStatus[childItem]}
