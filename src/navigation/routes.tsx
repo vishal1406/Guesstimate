@@ -1,15 +1,15 @@
-import WordleGame from "../screens/games";
+import WordleGame from "@screens/wordle";
 
 export const PRIVATE_ROUTES = [
   {
-    path: "/home",
+    path: "/games/guesstimate",
     component: <WordleGame />,
   },
 ];
 
 export const PUBLIC_ROUTES = [
   {
-    path: "/home",
+    path: "/games/guesstimate",
     component: <WordleGame />,
   },
 ];

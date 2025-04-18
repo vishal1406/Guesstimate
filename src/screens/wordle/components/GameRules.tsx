@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../../shared";
+import { Button } from "@shared";
 import "../styles/gameRules.css";
 import { X } from "lucide-react";
 

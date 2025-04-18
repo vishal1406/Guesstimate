@@ -1,5 +1,5 @@
 import React from "react";
-import { BoardBox } from "../../../shared";
+import { BoardBox } from "@shared";
 import "../styles/board.css"
 
 interface BoardProps {

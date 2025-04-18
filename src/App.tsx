@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import Navigation from './navigation';
+import Navigation from '@navigation';
 
 const App = () => {
   return (

@@ -1,14 +1,14 @@
 import { Component } from "react";
-import { HomeComponent } from "../components";
-import { LETTERS_LIST, WARNINGS } from "../../../shared/constants";
+import { WordleComponent } from "../components";
+import { LETTERS_LIST, WARNINGS } from "@shared/constants";
 import {
   notifyErrorMessage,
   generateRandomNumber,
   getEvaluatedAndStatus,
-} from "../../../utils/helper";
+} from "@utils/helper";
 import { generate } from "random-words";
 
-interface HomeContainerState {
+interface WordleContainerState {
   rowIndex: number;
   boardState: string[];
   totalEvaluation: string[][];
@@ -23,7 +23,7 @@ interface HomeContainerState {
   closeOverlay: boolean;
 }
 
-class HomeContainer extends Component<{}, HomeContainerState> {
+class Wordle extends Component<{}, WordleContainerState> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -60,7 +60,6 @@ class HomeContainer extends Component<{}, HomeContainerState> {
         maxLength: givenLen,
       });
       const randomNumber = generateRandomNumber(generatedWords.length);
-      console.log(generatedWords[randomNumber]);
       this.setState({ solution: generatedWords[randomNumber] });
       isRandomNumberFound = true;
     }
@@ -119,7 +118,7 @@ class HomeContainer extends Component<{}, HomeContainerState> {
       value += event.key;
       this.setState({ currentWord: value, isRowChange: false });
     } else {
-      console.log("Max Length Reached");
+      // "Max Length Reached"
     }
   };
 
@@ -176,7 +175,7 @@ class HomeContainer extends Component<{}, HomeContainerState> {
     } = this.state;
 
     return (
-      <HomeComponent
+      <WordleComponent
         rowIndex={rowIndex}
         boardState={boardState}
         totalEvaluation={totalEvaluation}
@@ -197,4 +196,4 @@ class HomeContainer extends Component<{}, HomeContainerState> {
   }
 }
 
-export default HomeContainer;
+export default Wordle;

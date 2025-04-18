@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import { Button, Timer } from '../../../shared';
-import { LETTERS } from '../../../shared/constants';
+import { createPortal } from 'react-dom';
+import { Button, Timer } from '@shared';
+import { LETTERS } from '@shared/constants';
 import Board from './Board';
 import GameRules from './GameRules';
 import '../styles/home.css';
-import { createPortal } from 'react-dom';
 
-interface HomeComponentProps {
+interface WordleComponentProps {
   boardState: string[];
   rowIndex: number;
   currentWord: string;
@@ -20,7 +20,7 @@ interface HomeComponentProps {
   closeOverlay: boolean;
 }
 
-const HomeComponent: React.FC<HomeComponentProps> = ({
+const Wordle: React.FC<WordleComponentProps> = ({
   boardState,
   rowIndex,
   currentWord,
@@ -88,4 +88,4 @@ const HomeComponent: React.FC<HomeComponentProps> = ({
   );
 };
 
-export default HomeComponent;
+export default Wordle;
