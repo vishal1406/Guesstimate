@@ -1,5 +1,4 @@
-
-.ui-boardBox{
+.ui-boardBox {
     width: 30px;
     height: 30px;
     padding: 10px;
@@ -13,61 +12,67 @@
 .ui-boardBox--default {
     background-color: rgb(255, 255, 255);
     border: 3px solid rgb(196, 193, 193);
-    
+
 }
 
 .ui-boardBox--notPresent {
     background-color: rgb(145, 139, 139);
     border: 3px solid rgb(145, 139, 139);
     animation: notPresent 1s;
-    /* transform: scale(-1,1); */
 }
 
 @keyframes notPresent {
-    0%{
+    0% {
         transform: rotateY(0deg);
     }
+
     50% {
         transform: rotateY(90deg);
     }
+
     100% {
-        transform: rotateY( 0deg);
+        transform: rotateY(0deg);
     }
 }
 
 .ui-boardBox--present {
-   
     background-color: rgb(214, 214, 26);
     border: 3px solid rgb(214, 214, 26);
     animation: present 1s;
 }
+
 @keyframes present {
-    0%{
+    0% {
         transform: rotateY(0deg);
     }
+
     50% {
         transform: rotateY(90deg);
     }
+
     100% {
-        transform: rotateY( 0deg);
+        transform: rotateY(0deg);
     }
 }
 
 .ui-boardBox--exact {
-   
+
     background-color: rgb(123, 165, 40);
     border: 3px solid rgb(123, 165, 40);
     animation: exact 1s;
 }
+
 @keyframes exact {
-    0%{
+    0% {
         transform: rotateY(0deg);
     }
+
     50% {
         transform: rotateY(90deg);
     }
+
     100% {
-        transform: rotateY( 0deg);
+        transform: rotateY(0deg);
     }
 }
 
@@ -76,25 +81,34 @@
 }
 
 @keyframes wiggle {
-  0%, 7% {
-    transform: rotateZ(0);
-  }
-  15% {
-    transform: rotateZ(-15deg);
-  }
-  20% {
-    transform: rotateZ(10deg);
-  }
-  25% {
-    transform: rotateZ(-10deg);
-  }
-  30% {
-    transform: rotateZ(6deg);
-  }
-  35% {
-    transform: rotateZ(-4deg);
-  }
-  40%, 100% {
-    transform: rotateZ(0);
-  }
+
+    0%,
+    7% {
+        transform: rotateZ(0);
+    }
+
+    15% {
+        transform: rotateZ(-15deg);
+    }
+
+    20% {
+        transform: rotateZ(10deg);
+    }
+
+    25% {
+        transform: rotateZ(-10deg);
+    }
+
+    30% {
+        transform: rotateZ(6deg);
+    }
+
+    35% {
+        transform: rotateZ(-4deg);
+    }
+
+    40%,
+    100% {
+        transform: rotateZ(0);
+    }
 }

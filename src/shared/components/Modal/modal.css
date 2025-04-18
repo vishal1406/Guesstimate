@@ -11,9 +11,9 @@
   position: fixed;
   align-items: center;
   justify-content: center;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -35,7 +35,6 @@
 }
 
 .modal .actions button {
-  /* border: 0; */
   background: #78f89f;
   border-radius: 5px;
   padding: 0.5rem 1rem;

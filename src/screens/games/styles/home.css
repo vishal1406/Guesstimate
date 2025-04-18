@@ -1,0 +1,28 @@
+.main {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.playBoard {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.playBoard .playBoard-row {
+    margin-bottom: 10px;
+}
+
+.lettersRowStyle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.letterStyle {
+    padding: 2px;
+}

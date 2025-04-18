@@ -1,0 +1,7 @@
+.ui-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-weight: 700;
+}
